@@ -61,7 +61,12 @@ class ComponentHandler:
             'thumbnails':                     self._getValue(playlist, ['thumbnailRenderer', 'playlistVideoThumbnailRenderer', 'thumbnail', 'thumbnails']),
         }
         component['link'] = 'https://www.youtube.com/playlist?list=' + component['id']
-        component['channel']['link'] = 'https://www.youtube.com/channel/' + component['channel']['id']
+        
+        component['channel']['link'] = (
+    f"https://www.youtube.com/channel/{component['channel']['id']}"
+    if component.get('channel', {}).get('id')
+    else None
+)
         return component
     
     def _getVideoFromChannelSearch(self, elements: list) -> list:
