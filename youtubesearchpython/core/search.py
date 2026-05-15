@@ -118,7 +118,6 @@ class SearchCore(RequestCore, RequestHandler, ComponentHandler):
                 self.resultComponents.append(self._getPlaylistComponent(element))
             if shelfElementKey in element.keys() and findVideos:
                 shelf = self._getShelfComponent(element)
-                print(shelf)
                 if not shelf:
                     continue
 
